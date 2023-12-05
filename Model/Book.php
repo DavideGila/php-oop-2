@@ -1,5 +1,6 @@
 <?php
-class Book 
+include __DIR__ ."/Product.php";
+class Book extends Product
 {
     private int $_id;
     private string $title;
@@ -8,8 +9,9 @@ class Book
     private string $longDescription;
     private array $categories;
 
-    function __construct($id, $title, $isbn, $image, $description, $categories)
+    function __construct($id, $title, $isbn, $image, $description, $categories, $price, $quantity)
     {
+        parent::__construct($price, $quantity);
         $this->_id = $id;
         $this->title = $title;
         $this->isbn = $isbn;
@@ -25,6 +27,8 @@ class Book
         $content = substr($this->longDescription, 0, 100) . '...';
         $custom = $this->isbn;
         $genre = $this->getCategories();
+        $price = $this->price;
+        $quantity = $this->quantity;
         include __DIR__ . "/../Views/card.php";
     }
 
@@ -43,7 +47,9 @@ class Book
         $bookList = json_decode($bookString, true);
         $books = [];
         foreach ($bookList as $item) {
-            $books[] = new Book($item['_id'], $item['title'], $item['isbn'], $item['thumbnailUrl'], $item['longDescription'], $item['categories']);
+            $price = rand(5, 200);
+            $quantity = rand(0, 100);
+            $books[] = new Book($item['_id'], $item['title'], $item['isbn'], $item['thumbnailUrl'], $item['longDescription'], $item['categories'], $price, $quantity);
         }
         return $books;
     }

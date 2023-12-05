@@ -12,8 +12,9 @@ class Movie extends Product
 
     private array $genres;
 
-    function __construct($id, $title, $overview, $vote, $image, $original_language, $genres)
+    function __construct($id, $title, $overview, $vote, $image, $original_language, $genres, $price, $quantity)
     {
+        parent::__construct($price, $quantity);
         $this->id = $id;
         $this->title = $title;
         $this->overview = $overview;
@@ -21,6 +22,8 @@ class Movie extends Product
         $this->poster_path = $image;
         $this->original_language = $original_language;
         $this->genres = $genres;
+        $this->price = $price;
+        $this->quantity = $quantity;
     }
     
     public function printCard()
@@ -30,6 +33,8 @@ class Movie extends Product
         $content = substr($this->overview, 0, 100) . '...';
         $custom = $this->getVote();
         $genre = $this->formatGenres();
+        $price = $this->price;
+        $quantity = $this->quantity;
         include __DIR__ . "/../Views/card.php";
     }
      private function formatGenres()
@@ -65,7 +70,9 @@ class Movie extends Product
                 $rand_genre = $genres[$index];
                 $movie_genres[] = $rand_genre;
             }
-            $movies[] = new Movie($item['id'], $item['title'], $item['overview'], $item['vote_average'], $item['poster_path'], $item['original_language'], $movie_genres);
+            $price = rand(5, 200);
+            $quantity = rand(0, 100);
+            $movies[] = new Movie($item['id'], $item['title'], $item['overview'], $item['vote_average'], $item['poster_path'], $item['original_language'], $movie_genres, $price, $quantity);
         }
         return $movies;
     }
