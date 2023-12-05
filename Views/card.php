@@ -8,10 +8,20 @@
             <p class="card-text">
                 <?= $content ?>
             </p>
-            <div class="d-flex justify-content-between align-items-flex-start">
+            <div>
                 <?= $custom ?>
+            </div>
+            <div>
+                <?= $genre ?>
+            </div>
+            <div class="d-flex justify-content-between align-items-flex-start">
                 <div>
-                    <?= $genre ?>
+                    Quantità
+                    <?= $quantity ?>
+                </div>
+                <div>
+                    Prezzo 
+                    €<?= $price ?>                    
                 </div>
             </div>
         </div>
