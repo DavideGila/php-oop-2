@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
@@ -13,16 +14,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OOP - Shop</title>
 </head>
+
 <body>
     <header>
         <div class="container">
             <h1>OOP - Shop</h1>
-            <ul>
-                <li><a href="index.php">Movies</a></li>
-                <li><a href="game.php">Games</a></li>
-                <li><a href="book.php">Books</a></li>
-            </ul>
+            <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <img src="https://www.creativefabrica.com/wp-content/uploads/2021/03/17/online-shop-logo-designs-template-Graphics-9701332-1-1-580x386.jpg" alt="" style="width: 80px;">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php">Movies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="game.php">Games</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="book.php">Books</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         </div>
+        
     </header>
 
     <main>
