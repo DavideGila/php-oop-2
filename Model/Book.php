@@ -24,11 +24,11 @@ class Book
         $title = $this->title;
         $content = substr($this->longDescription, 0, 100) . '...';
         $custom = $this->isbn;
-        $genre = $this->getAuthors();
+        $genre = $this->getCategories();
         include __DIR__ . "/../Views/card.php";
     }
 
-    public function getAuthors(){
+    public function getCategories(){
         $template = "<p>";
         for ($n = 0; $n < count($this->categories); $n++) {
             $template .= $this->categories[$n].' ';
