@@ -65,7 +65,7 @@ class Movie extends Product
                 $rand_genre = $genres[$index];
                 $movie_genres[] = $rand_genre;
             }
-            $movies[] = new Movie($item['id'], $item['title'], $item['overview'], $item['vote_average'], $item['original_language'], $item['poster_path'], $movie_genres);
+            $movies[] = new Movie($item['id'], $item['title'], $item['overview'], $item['vote_average'], $item['poster_path'], $item['original_language'], $movie_genres);
         }
         return $movies;
     }
