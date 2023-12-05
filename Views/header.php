@@ -19,6 +19,8 @@
             <h1>OOP - Shop</h1>
             <ul>
                 <li><a href="index.php">Movies</a></li>
+                <li><a href="game.php">Games</a></li>
+                <li><a href="book.php">Books</a></li>
             </ul>
         </div>
     </header>
