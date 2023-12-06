@@ -9,7 +9,7 @@ $games = Game::fetchAll();
     <div class="row">
         <?php
             foreach ($games as $game) {
-                $game->printCard();
+                $game->printCard($game -> printGame());
             }
         ?>
     </div>
