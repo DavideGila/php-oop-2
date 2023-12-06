@@ -1,6 +1,6 @@
 <?php
-include __DIR__ ."/Genre.php";
-include __DIR__ ."/Product.php";
+include __DIR__ . "/Genre.php";
+include __DIR__ . "/Product.php";
 class Movie extends Product
 {
     private int $id;
@@ -25,10 +25,11 @@ class Movie extends Product
         $this->price = $price;
         $this->quantity = $quantity;
     }
-    
+
     public function printMovie()
     {
         $movieItem = [
+            "sale" => $this->getSale(),
             "image" => $this->poster_path,
             "title" => strlen($this->title) > 28 ? substr($this->title, 0, 28) . '...' : $this->title,
             "content" => substr($this->overview, 0, 100) . '...',
@@ -39,7 +40,7 @@ class Movie extends Product
         ];
         return $movieItem;
     }
-     private function formatGenres()
+    private function formatGenres()
     {
         $template = "<p>";
         for ($n = 1; $n < count($this->genres); $n++) {
@@ -79,4 +80,3 @@ class Movie extends Product
         return $movies;
     }
 }
-?>
