@@ -26,16 +26,18 @@ class Movie extends Product
         $this->quantity = $quantity;
     }
     
-    public function printCard()
+    public function printMovie()
     {
-        $image = $this->poster_path;
-        $title = strlen($this->title) > 28 ? substr($this->title, 0, 28) . '...' : $this->title;
-        $content = substr($this->overview, 0, 100) . '...';
-        $custom = $this->getVote();
-        $genre = $this->formatGenres();
-        $price = $this->price;
-        $quantity = $this->quantity;
-        include __DIR__ . "/../Views/card.php";
+        $movieItem = [
+            "image" => $this->poster_path,
+            "title" => strlen($this->title) > 28 ? substr($this->title, 0, 28) . '...' : $this->title,
+            "content" => substr($this->overview, 0, 100) . '...',
+            "custom" => $this->getVote(),
+            "genre" => $this->formatGenres(),
+            "price" => $this->price,
+            "quantity" => $this->quantity,
+        ];
+        return $movieItem;
     }
      private function formatGenres()
     {

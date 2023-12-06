@@ -20,16 +20,18 @@ class Book extends Product
         $this->categories = $categories;
     }
 
-    public function printCard()
+    public function printBook()
     {
-        $image = $this->thumbnailUrl;
-        $title = $this->title;
-        $content = substr($this->longDescription, 0, 100) . '...';
-        $custom = $this->isbn;
-        $genre = $this->getCategories();
-        $price = $this->price;
-        $quantity = $this->quantity;
-        include __DIR__ . "/../Views/card.php";
+        $bookItem = [
+            "image" => $this->thumbnailUrl,
+            "title" => $this->title,
+            "content" => substr($this->longDescription, 0, 100) . '...',
+            "custom" => $this->isbn,
+            "genre" => $this->getCategories(),
+            "price" => $this->price,
+            "quantity" => $this->quantity
+        ];
+        return $bookItem;
     }
 
     public function getCategories(){
